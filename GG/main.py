@@ -1,4 +1,8 @@
 '''
+Gruppo Discord: https://discord.gg/VscHwYRe
+Tabella di Marcia:  https://docs.google.com/document/d/1-w-js9cxguo0QdjEWh_PbhPzplJr30-gSaY11mGvUc8/edit?usp=sharing
+Respository: https://github.com/giulianigabbo95/ProgettoCorso_ECGGMV
+
 Esercizio: Gestionale Officina Elettrodomestici
 Progettare un sistema a oggetti per un'officina che ripara elettrodomestici.
 Il programma deve modellare elettrodomestici, ticket di riparazione e operazioni dell'officina utilizzando incapsulamento, ereditarietà, polimorfismo, type() e metodi variatici (*args, **kwargs).
@@ -68,7 +72,7 @@ Il programma deve modellare elettrodomestici, ticket di riparazione e operazioni
         - totalePreventivo(self): somma i preventivi di tutti i ticket
 
 5. Uso di type() e controllo degli oggetti:
-    Implementare un metodo all'interno della classe Officina (o in una funzione separata): statisticheTipo(self)
+    Implementare un metodo all'interno della classe Officina (o in una funzione separata): calcolaStatisticheTipo(self)
     Questo metodo deve:
         - Iterare su tutti i ticket
         - Utilizzare type() (o isinstance()) per identificare se l'elettrodomestico associato al ticket è una Lavatrice, un Frigorifero o un Forno
