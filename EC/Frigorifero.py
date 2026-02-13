@@ -1,6 +1,5 @@
-##from gg import Elettrodomestico
-import Elettrodomestico from GG.Elettrodomestico
-
+class Elettrodomestico:
+    pass
 
 class Frigorifero(Elettrodomestico):
     
@@ -16,4 +15,6 @@ class Frigorifero(Elettrodomestico):
         if self.ha_freezer:
             costo += 15
         return costo
-    
+
+
+
