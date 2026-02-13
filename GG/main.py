@@ -85,7 +85,67 @@ Il programma deve modellare elettrodomestici, ticket di riparazione e operazioni
     Requisito: il metodo deve utilizzare type() (o varianti consigliate) per determinare il tipo reale degli oggetti.
 
 '''
+#import Elettrodomestico
+import Lavatrice
+import Frigorifero
+import Forno
+#import Ticket
+import Officina
 
+officina = Officina("Officina Elettrodomestici Roma")
+
+while True:
+    print(f"{officina.get_nome()}")
+    print("1. Aggiungi elettrodomestico")
+    print("2. Apri ticket di riparazione")
+    print("3. Aggiungi servizi extra a un ticket")
+    print("4. Chiudi ticket")
+    print("5. Visualizza tutti gli elettrodomestici")
+    print("6. Filtra elettrodomestici per tipo")
+    print("7. Visualizza totale incassato")
+    print("8. Esci")
+    
+    scelta = input("Scegli: ")
+    
+    match scelta:
+        case "1":
+            print("Tipo Elettrodomestico")
+            print("1. Lavatrice")
+            print("2. Frigorifero")
+            print("3. Forno")
+            
+            tipo = input("Scegli: ")
+            marca = input("Marca: ")
+            modello = input("Modello: ")
+            anno = int(input("Anno acquisto: "))
+            guasto = input("Descrizione guasto: ")
+            
+            match tipo:
+                case "1":
+                    capacita = int(input("Capacità (kg): "))
+                    giri = int(input("Giri centrifuga: "))
+                    elettro = Lavatrice(marca, modello, anno, guasto, capacita, giri)
+                    officina.aggiungiElettrodomestico(elettro)
+                
+                case "2":
+                    litri = int(input("Litri: "))
+                    freezer = input("Ha freezer? (s/n): ").lower() == "s"
+                    elettro = Frigorifero(marca, modello, anno, guasto, litri, freezer)
+                    officina.aggiungiElettrodomestico(elettro)
+                
+                case "3":
+                    print("Tipo alimentazione (elettrico/gas): ")
+                    alimentazione = input().lower()
+                    ventilato = input("Ha funzione ventilata? (s/n): ").lower() == "s"
+                    elettro = Forno(marca, modello, anno, guasto, alimentazione, ventilato)
+                    officina.aggiungiElettrodomestico(elettro)
+                
+                case _:
+                    print("Tipo non valido!")
+    
+        
+        case _:
+            print("Scelta non valida!")
 
 
 

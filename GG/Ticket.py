@@ -1,19 +1,4 @@
-"""Classe Ticket Riparazione:
-Classe che rappresenta un ticket di riparazione aperto in officina.
-Attributi privati (__):
-__id_ticket (intero o stringa univoca)
-__elettrodomestico (oggetto di tipo Elettrodomestico o sottoclasse)
-__stato (stringa: "aperto", "in lavorazione", "chiuso")
-__note (lista di stringhe, inizialmente vuota)
-Metodi:
-__init__(self, id_ticket, elettrodomestico): costruttore
-aggiungiNota(self, testo): aggiunge una nota alla lista
-calcolaPreventivo(self, *voci_extra): metodo variadico:
-Utilizza elettrodomestico.stimaCostoBase() come costo di partenza
-Somma tutte le voci extra passate come parametri (*voci_extra)
-Restituisce il totale
-Getter e setter per stato e note
-Nota: il metodo calcolaPreventivo() deve funzionare con qualsiasi sottoclasse di Elettrodomestico (polimorfismo su stimaCostoBase())."""
+import Lavatrice
 
 class TicketRiparazione:
     def __init__(self, id_ticket, elettrodomestico):
@@ -71,7 +56,13 @@ class TicketRiparazione:
     def get_id(self):
         return self.__id_ticket
     
-    """# Crei il forno (fatto da te)
+    
+    def calcolaStatisticheTipo(self):
+        for ticket in self.tickets:
+            if type(ticket._TicketRiparazione__elettrodomestico) == Lavatrice:
+                conta_lavatrici += 1
+    
+"""# Crei il forno (fatto da te)
 mio_forno = Forno("Samsung", "Dual Cook", 2023, "Ventola rumorosa", "elettrico", True)
 
 # Crei il ticket (fatto da te)
