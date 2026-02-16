@@ -142,7 +142,80 @@ while True:
                 
                 case _:
                     print("Tipo non valido!")
-    
+    '''      
+        case "2":
+            if officina.get_elettrodomestici():
+                print("Nessun elettrodomestico in officina!")
+                continue
+            
+            officina.()
+            scelta = int(input("\nScegli numero elettrodomestico (1, 2, ...): ")) - 1
+            
+            if 0 <= scelta < len(officina.get_elettrodomestici()):
+                elettro = officina.get_elettrodomestici()[scelta]
+                officina.aggiungiTicket(elettro)
+            else:
+                print("Scelta non valida!")
+    '''   
+        case "3":
+            officina.stampa_ticket_aperti()
+            if officina._Officina__ticket:
+                num = int(input("Numero ticket: "))
+                for ticket in officina._Officina__ticket:
+                    if ticket.getNumeroTicket() == num and ticket.getStato() == "aperto":
+                        print("\nServizi extra disponibili:")
+                        print("- ritiro_domicilio (€20)")
+                        print("- consegna_rapida (€15)")
+                        print("- ricambi_originali (€50)")
+                        print("- pulizia_gratuita (€10)")
+                        servizi = input("Inserisci servizi (separati da spazio): ").split()
+                        costo = ticket.calcola_costo_totale(*servizi)
+                        print(f"Costo totale ticket: €{costo}")
+                        break
+                else:
+                    print("Ticket non trovato o già chiuso!")
+        
+        case "4":
+            officina.stampa_ticket_aperti()
+            if officina._Officina__ticket:
+                num = int(input("Numero ticket da chiudere: "))
+                for ticket in officina._Officina__ticket:
+                    if ticket.getNumeroTicket() == num and ticket.getStato() == "aperto":
+                        if ticket.getCostoFinale() == 0:
+                            print("Il ticket non ha costo! Aggiungi prima i servizi.")
+                        else:
+                            ticket.chiudi_ticket()
+                        break
+                else:
+                    print("Ticket non trovato o già chiuso!")
+        
+        case "5":
+            officina.stampa_tutti_elettrodomestici()
+        
+        case "6":
+            print("\n--- FILTRA PER TIPO ---")
+            print("1. Lavatrice")
+            print("2. Frigorifero")
+            print("3. Forno")
+            tipo_filtro = input("Scegli: ")
+            
+            match tipo_filtro:
+                case "1":
+                    officina.cerca_per_tipo(Lavatrice)
+                case "2":
+                    officina.cerca_per_tipo(Frigorifero)
+                case "3":
+                    officina.cerca_per_tipo(Forno)
+                case _:
+                    print("Tipo non valido!")
+        
+        case "7":
+            officina.totale_incassato()
+        
+        case "8":
+            print("\nGrazie per aver usato il gestionale officina!")
+            print("Arrivederci!")
+            break
         
         case _:
             print("Scelta non valida!")

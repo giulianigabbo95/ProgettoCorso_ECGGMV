@@ -61,15 +61,3 @@ class TicketRiparazione:
         for ticket in self.tickets:
             if type(ticket._TicketRiparazione__elettrodomestico) == Lavatrice:
                 conta_lavatrici += 1
-    
-"""# Crei il forno (fatto da te)
-mio_forno = Forno("Samsung", "Dual Cook", 2023, "Ventola rumorosa", "elettrico", True)
-
-# Crei il ticket (fatto da te)
-t1 = TicketRiparazione("TK-001", mio_forno)
-
-# Aggiungi note e calcoli il preventivo con extra
-t1.aggiungiNota("Sostituito cuscinetto ventola")
-preventivo_finale = t1.calcolaPreventivo(25.0, 15.5) # Extra: pezzo + spedizione
-
-print(f"Totale per ticket {t1.get_id()}: {preventivo_finale}€")"""

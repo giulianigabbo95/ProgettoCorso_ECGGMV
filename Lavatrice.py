@@ -6,8 +6,8 @@ class Lavatrice(Elettrodomestico):
         self.capacita_kg = capacita_kg
         self.giri_centrifuga = giri_centrifuga
     
-    def stima_costo_base(self):
-        costo = super().stima_costo_base()
+    def stimaCostoBase(self):
+        costo = super().stimaCostoBase()
         if self.__capacita_kg > 8:
             costo += 30
         if self.__giri_centrifuga > 1400:

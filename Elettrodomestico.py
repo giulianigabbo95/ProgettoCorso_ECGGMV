@@ -33,6 +33,5 @@ class Elettrodomestico:
             print("Marty sei tu? Ritorno al Futuro!")
         else:
             self.__anno_acquisto = anno_acquisto
-        
     def set_guasto(self, guasto):
         self.__guasto = guasto
